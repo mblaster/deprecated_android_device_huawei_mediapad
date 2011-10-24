@@ -25,7 +25,6 @@
 # against the traditional rules of inheritance).
 
 USE_CAMERA_STUB := true
-BOARD_USES_GENERIC_AUDIO := false
 # inherit from the proprietary version
 -include vendor/htc/pyramid/BoardConfigVendor.mk
 
@@ -60,8 +59,9 @@ WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
 # Audio 
 BOARD_USES_GENERIC_AUDIO := false
-#BOARD_PREBUILT_LIBAUDIO := true
-BOARD_USES_ALSA_AUDIO := true
+BOARD_PREBUILT_LIBAUDIO := true
+#BOARD_USES_ALSA_AUDIO := true
+
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -102,7 +102,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 TARGET_HAVE_HDMI_OUT := true
-#TARGET_HARDWARE_3D := true
+# TARGET_HARDWARE_3D := true
 
 # Define Prebuilt kernel locations
 TARGET_PREBUILT_KERNEL := device/htc/pyramid/kernel
@@ -133,4 +133,4 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := false
 BOARD_CUSTOM_GRAPHICS:= ../../../device/htc/pyramid/graphics.c
-BOARD_USES_RECOVERY_CHARGEMODE := true
+# BOARD_USES_RECOVERY_CHARGEMODE := true
