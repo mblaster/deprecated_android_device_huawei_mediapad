@@ -28,6 +28,9 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/htc/pyramid/BoardConfigVendor.mk
 
+# inherit from 7x30 recovery for chargemode
+-include device/htc/7x30-recovery/BoardConfigCommon.mk
+
 TARGET_NO_BOOTLOADER := true
 
 TARGET_BOARD_PLATFORM := msm8660
@@ -133,4 +136,3 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := false
 BOARD_CUSTOM_GRAPHICS:= ../../../device/htc/pyramid/graphics.c
-# BOARD_USES_RECOVERY_CHARGEMODE := true
