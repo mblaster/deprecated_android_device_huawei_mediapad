@@ -28,8 +28,8 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/htc/pyramid/BoardConfigVendor.mk
 
-# inherit from 7x30 recovery for chargemode
--include device/htc/7x30-recovery/BoardConfigCommon.mk
+# inherit from 8x60 recovery for chargemode
+-include device/htc/8x60-recovery/BoardConfigCommon.mk
 
 TARGET_NO_BOOTLOADER := true
 
