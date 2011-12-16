@@ -18,4 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/pyramid.mk
+    $(LOCAL_DIR)/full_pyramid.mk
