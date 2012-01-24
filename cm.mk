@@ -10,14 +10,14 @@ TARGET_BOOTANIMATION_NAME := vertical-540x960
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/htc/pyramid/device_pyramid.mk)
+$(call inherit-product, device/huawei/mediapad/full_mediapad.mk)
 
-# Device naming
-PRODUCT_DEVICE := pyramid
-PRODUCT_NAME := cm_pyramid
-PRODUCT_BRAND := htc
-PRODUCT_MODEL := HTC Sensation
-PRODUCT_MANUFACTURER := HTC
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := mediapad
+PRODUCT_NAME := cm_mediapad
+PRODUCT_BRAND := Huawei
+PRODUCT_MODEL := MediaPad
 
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_pyramid BUILD_FINGERPRINT=tmous/htc_pyramid/pyramid:4.0.3/IML74K/356011.14:user/release-keys PRIVATE_BUILD_DESC="3.32.531.14 CL356011 release-keys" BUILD_NUMBER=356011
+#Set build fingerprint / ID / Product Name ect.
+# FAKE PYRAMID FOR NOW
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=pyramid BUILD_ID=ITL41F BUILD_DISPLAY_ID=ITL41F BUILD_FINGERPRINT="htc_europe/htc_pyramid/pyramid:2.3.4/GRJ22/125597.2:user/release-keys" PRIVATE_BUILD_DESC="pyramid-user 4.0.1 ITL41F 228551 release-keys"

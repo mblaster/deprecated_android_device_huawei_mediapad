@@ -25,39 +25,119 @@
 # against the traditional rules of inheritance).
 
 # inherit from common msm8660
--include device/htc/msm8660-common/BoardConfigCommon.mk
+# -include device/htc/msm8660-common/BoardConfigCommon.mk
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := pyramid
-
-# Kernel
-BOARD_KERNEL_BASE := 0x48000000
-BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=pyramid no_console_suspend=1
-TARGET_PREBUILT_KERNEL := device/htc/pyramid/prebuilt/kernel
-
-WIFI_DRIVER_MODULE_NAME          := bcmdhd
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcmdhd.ko"
+#TARGET_BOOTLOADER_BOARD_NAME := pyramid
 
 # QCOM Gralloc/Copybit/HWcomposer
-TARGET_USES_OVERLAY := false
-COMMON_GLOBAL_CFLAGS += -DQCOM_ROTATOR_KERNEL_FORMATS
+#TARGET_USES_OVERLAY := false
+#COMMON_GLOBAL_CFLAGS += -DQCOM_ROTATOR_KERNEL_FORMATS
+
+USE_CAMERA_STUB := true
+# inherit from the proprietary version
+-include vendor/huawei/mediapad/BoardConfigVendor.mk
+
+# inherit from 8x60 recovery for chargemode
+#-include device/htc/8x60-recovery/BoardConfigCommon.mk
+
+TARGET_NO_BOOTLOADER := true
+
+TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+TARGET_BOOTLOADER_BOARD_NAME := mediapad
+TARGET_HAVE_HDMI_OUT := true
+TARGET_USES_OVERLAY := true
+TARGET_NO_RADIOIMAGE := true
+TARGET_HAVE_TSLIB := false
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
+# Wifi related defines
+#BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+#WPA_SUPPLICANT_VERSION      := VER_0_6_X
+#BOARD_WLAN_DEVICE           := bcm4329
+#WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
+#WIFI_DRIVER_FW_STA_PATH     := "/system/etc/firmware/fw_bcm4329.bin"
+#WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
+#WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
+#WIFI_DRIVER_MODULE_NAME     := "bcm4329"
+
+# Audio 
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_PREBUILT_LIBAUDIO := true
+#BOARD_USES_ALSA_AUDIO := true
+
+#Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+# Define egl.cfg location
+BOARD_EGL_CFG := device/huawei/mediapad/egl.cfg
+
+BOARD_USES_QCOM_LIBS := true
+BOARD_USES_QCOM_LIBRPC := true
+#BOARD_USES_QCOM_GPS := true
+BOARD_USE_QCOM_PMEM := true
+BOARD_CAMERA_USE_GETBUFFERINFO := true
+
+
+#BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
+BOARD_USES_ADRENO_200 := true
+#BOARD_NO_RGBX_8888 := true
+
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+#BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
+QCOM_TARGET_PRODUCT := msm8660
+
+
+#BOARD_HAVE_SQN_WIMAX := true
+#BOARD_USE_NEW_LIBRIL_HTC := true
+#TARGET_PROVIDES_LIBRIL := vendor/htc/pyramid/proprietary/libril.so
+
+BOARD_KERNEL_CMDLINE := no_console_suspend=1
+BOARD_KERNEL_BASE := 0x40300000
+BOARD_KERNEL_PAGESIZE := 2048
+
+TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+
+#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
+#BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+
+TARGET_HAVE_HDMI_OUT := true
+# TARGET_HARDWARE_3D := true
+
+# Define Prebuilt kernel locations
+TARGET_PREBUILT_KERNEL := device/huawei/mediapad/kernel
 
 # Qcom GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776192
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
-BOARD_FLASH_BLOCK_SIZE := 262144
 
-# Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UI_LIB := librecovery_ui_pyramid
-BOARD_CUSTOM_GRAPHICS:= ../../../device/htc/pyramid/recovery/graphics.c
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00C00000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x01000000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x18000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0179300000
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+#TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
+
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
+BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_CUSTOM_GRAPHICS:= ../../../device/huawei/mediapad/graphics.c
+
