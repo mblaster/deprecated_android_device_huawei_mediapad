@@ -148,7 +148,7 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-PRODUCT_NAME := Huawei MediaPad
+PRODUCT_NAME := full_mediapad
 PRODUCT_DEVICE := mediapad
 PRODUCT_MODEL := Huawei MediaPad
 PRODUCT_MANUFACTURER := Huawei
