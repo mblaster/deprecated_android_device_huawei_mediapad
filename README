@@ -1,3 +1,25 @@
+Cyanogenmod9 device tree for the Huawei Mediapad
+(Based on pyramid device tree from zyonee)
+
+WIP: CURRENTLY ONLY RECOVERY WORKS PARTIALLY
+
+Howto build recovery in a nutshell:
+
+1) Set up your CM9 tree
+2) Chek out this repository to device/huawei/mediapad
+3) . build/envsetup.sh
+4) . build/tools/device/makerecoveries.sh full_mediapad-eng
+
+Then flash it using $fastboot flash recovery $CM9DIR/out/target/product/mediapad/recovery.img
+
+GPL notice for kernel source code: Afaik Huawei has not released it yet, as they are obliged to do. Please drop me a note if you know where to get it. As soon as I have it myself I will link to it here.
+
+Happy coding
+mblaster
+
+
+*** Original Readme ***
+
 This is the cm device three based on Bezzer68's tree
 
 i've done someting to try to make it work better. 
