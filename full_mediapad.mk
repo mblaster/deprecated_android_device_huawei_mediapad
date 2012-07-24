@@ -127,16 +127,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 #DEVICE_PACKAGE_OVERLAYS += device/htc/pyramid/overlay
 
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/huawei/mediapad/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 # media profiles and capabilities spec
 #$(call inherit-product, device/htc/pyramid/media_a1026.mk)
 

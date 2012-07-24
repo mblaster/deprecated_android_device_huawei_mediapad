@@ -117,7 +117,7 @@ TARGET_HAVE_HDMI_OUT := true
 
 # Define Prebuilt kernel locations
 #TARGET_PREBUILT_KERNEL := device/huawei/mediapad/kernel
-#ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
+ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 TARGET_KERNEL_SOURCE := kernel/huawei/mediapad
 TARGET_KERNEL_CONFIG := cyanogenmod_mediapad_defconfig
 
