@@ -2,22 +2,26 @@ Cyanogenmod9 device tree for the Huawei Mediapad
 (Based on pyramid device tree from cm)
 
 Status:
--Recovery compiles and boots (fix for kernel needed)
+-Recovery compiles and boots
 -Backup seems to run fine, don't dare to restore atm...
 
 Howto build recovery in a nutshell:
 
-1) Set up your CM9 tree
-2) Chek out this repository to device/huawei/mediapad
-3) Check out the kernel sources from https://github.com/mblaster/mediapad_kernel_ics to kernel/huawei/mediapad
-3b) TEMPORARY FIX: comment out this:
-    $(KERNEL_HEADERS_INSTALL): $(KERNEL_OUT) $(KERNEL_CONFIG)
-        $(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE) headers_install
-    in build/core/tasks/kernel.mk until headers_install is fixed in the kernel tree
-4) . build/envsetup.sh
-5) . build/tools/device/makerecoveries.sh full_mediapad-eng
+1) Set up your CM9 tree using the local_manifest.xml below
+2) . build/envsetup.sh
+3) . build/tools/device/makerecoveries.sh full_mediapad-eng
 
 Then flash it using $fastboot flash recovery $CM9DIR/out/target/product/mediapad/recovery.img
 
 Happy coding
 mblaster
+
+
+###########################################
+
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="https://github.com/mblaster/" name="mblaster" />
+  <project name="mediapad_kernel_ics" path="kernel/huawei/mediapad" remote="mblaster" revision="refs/heads/master" />
+  <project name="android_device_huawei_mediapad" path="device/huawei/mediapad" remote="mblaster" revision="refs/heads/ics-cm9-rebase" />
+</manifest>
