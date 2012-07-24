@@ -25,8 +25,4 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 # include the non-open-source counterpart to this file
-<<<<<<< HEAD
--include vendor/htc/pyramid/AndroidBoardVendor.mk
-=======
 -include vendor/huawei/mediapad/BoardConfigVendor.mk
->>>>>>> 3cb834d... Huawei mediapad (based on pyramid)
