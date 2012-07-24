@@ -116,7 +116,10 @@ TARGET_HAVE_HDMI_OUT := true
 # TARGET_HARDWARE_3D := true
 
 # Define Prebuilt kernel locations
-TARGET_PREBUILT_KERNEL := device/huawei/mediapad/kernel
+#TARGET_PREBUILT_KERNEL := device/huawei/mediapad/kernel
+#ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
+TARGET_KERNEL_SOURCE := kernel/huawei/mediapad
+TARGET_KERNEL_CONFIG := tegra_betelgeuse_android_defconfig
 
 # Qcom GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
