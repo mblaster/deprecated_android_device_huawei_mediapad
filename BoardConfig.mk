@@ -71,13 +71,13 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 #WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
 # Audio 
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_PREBUILT_LIBAUDIO := true
+BOARD_USES_GENERIC_AUDIO := true
+#BOARD_PREBUILT_LIBAUDIO := true
 #BOARD_USES_ALSA_AUDIO := true
 
 #Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
+#BOARD_HAVE_BLUETOOTH := true
+#BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Define egl.cfg location
 BOARD_EGL_CFG := device/huawei/mediapad/egl.cfg
@@ -119,10 +119,10 @@ TARGET_HAVE_HDMI_OUT := true
 #TARGET_PREBUILT_KERNEL := device/huawei/mediapad/kernel
 #ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 TARGET_KERNEL_SOURCE := kernel/huawei/mediapad
-TARGET_KERNEL_CONFIG := tegra_betelgeuse_android_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_mediapad_defconfig
 
 # Qcom GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
+#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
